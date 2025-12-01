@@ -2,10 +2,11 @@
 Advent of Code 2025 - Day 01 Part 2 Solution
 Circular position tracker with rotation commands - Enhanced counting
 
-PART 2 CHANGE: Now counts EVERY time position 0 is reached during rotations,
-not just the final position. For example, if rotating right from position 98
-by 5 steps (98→99→0→1→2→3), position 0 is reached once during the rotation.
-If rotating by 105 steps, position 0 would be reached twice (going around the circle).
+PART 2 CHANGE: Now counts EVERY time position 0 is reached during
+rotations, not just the final position. For example, if rotating right
+from position 98 by 5 steps (98→99→0→1→2→3), position 0 is reached
+once during the rotation. If rotating by 105 steps, position 0 would
+be reached twice (going around the circle).
 """
 
 # Input file path containing rotation commands (L/R followed by number)
@@ -14,15 +15,17 @@ input_path = "/home/genix/Workspace/AdventOfCode/Day01/input.txt"
 
 def rotationCall(current_position, selected_input):
     """
-    Parse and execute a rotation command, counting all passes through position 0.
+    Parse and execute a rotation command, counting all passes through
+    position 0.
 
     Args:
         current_position: Current position on the circular track (0-99)
-        selected_input: Command string starting with 'L' or 'R' followed by a number
+        selected_input: Command string starting with 'L' or 'R'
+                        followed by a number
 
     Returns:
-        tuple: (new_position, zero_count) where zero_count is how many times
-               position 0 was reached during this rotation
+        tuple: (new_position, zero_count) where zero_count is how
+               many times position 0 was reached during this rotation
     """
     all_zero_count = 0
     # Check if command is a left rotation (e.g., 'L5')
@@ -98,7 +101,8 @@ def rotationRight(current_position, number_rotation):
             current_position = 0
 
         # Count if we land on position 0 during rotation
-        # KEY difference from Part 1: count EVERY time we hit 0, not just final position
+        # KEY difference from Part 1: count EVERY time we hit 0,
+        # not just final position
         if current_position == 0:
             zero_count += 1
 
@@ -109,7 +113,8 @@ def rotationRight(current_position, number_rotation):
 # Starting position for the puzzle
 current_position = 50
 
-# Counter for how many times we reach position 0 (counting all passes during rotations)
+# Counter for how many times we reach position 0
+# (counting all passes during rotations)
 solution = 0
 
 # Read and process each rotation command from input file
